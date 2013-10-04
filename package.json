@@ -8,7 +8,7 @@
   },
   "dependencies": {
   	"mongoose" : "latest",
-    	"restify" : "latest",
+    	"express" : "latest",
 	"underscore" : "latest"
   }
 }

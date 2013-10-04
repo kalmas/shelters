@@ -1,7 +1,7 @@
 /**
  * Module dependencies.
  */
-var restify = require('restify'),
+var express = require('express'),
 	fs = require('fs'),
 	mongoose = require('mongoose');	
 
@@ -26,17 +26,17 @@ var walk = function(path) {
 };
 walk(models_path);
 
-var server = restify.createServer();
+var server = express();
 
-// Configure restify
-require('./config/restify')(server);
+// Configure express
+require('./config/express')(server);
 
 // Bootstrap routes
 require('./config/routes')(server);
 
 var port = config.port;
 server.listen(port, function(){
-  console.log('%s listening at %s', server.name, server.url);
+  console.log('Listening on ' + config.port);
 });
 
 exports = module.exports = server;
