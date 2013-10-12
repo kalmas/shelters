@@ -11,8 +11,10 @@ angular.module('sheltersApp', [
   ]).
   config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/shelters', {
-      templateUrl: 'web/partials/shelters/list.html', 
-      controller: 'SheltersCtrl'
+      templateUrl: 'web/partials/shelters/list.html'
+    });
+    $routeProvider.when('/shelters/:shelterId', {
+      templateUrl: 'web/partials/shelters/view.html'
     });
     $routeProvider.otherwise({
       redirectTo: '/shelters'

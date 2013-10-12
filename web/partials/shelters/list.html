@@ -1,12 +1,12 @@
-<div class="container-fluid" data-ng-init="find()">
+<div class="container-fluid" 
+    data-ng-controller="SheltersCtrl" data-ng-init="find()">
   <div class="row-fluid">
     <div class="span10">
       <h1>Shelters</h1>
       <ul class="shelters">
       <!-- json: {{shelters | json}} -->
         <li ng-repeat="shelter in shelters">
-          <h2>{{shelter.shelter_name}}</h2>
-          <p>{{shelter.created | date:'short' }}</p>
+          <h2><a data-ng-href="#/shelters/{{shelter._id}}">{{shelter.shelter_name}}</a></h2>
         </li>
       </ul>
     </div>

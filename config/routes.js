@@ -8,5 +8,8 @@ module.exports = function(server) {
 	server.get('/hello/:name', sayHi);
 
 	server.get('/shelters', shelters.all);
+	server.get('/shelters/:shelterId', shelters.show);
 	server.post('/shelters', shelters.create)
+
+  server.param('shelterId', shelters.shelter);
 };
