@@ -3,12 +3,11 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "service" : "node server.js",
-    "web" : "node web-server.js"
+    "service" : "node server.js"
   },
   "dependencies": {
   	"mongoose" : "latest",
-    	"express" : "latest",
-	"underscore" : "latest"
+    "express" : "latest",
+	  "underscore" : "latest"
   }
 }
