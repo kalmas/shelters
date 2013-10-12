@@ -10,13 +10,17 @@ angular.module('sheltersApp', [
   'sheltersApp.services'
   ]).
   config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/shelters', {
+    $routeProvider.
+    when('/shelters', {
       templateUrl: 'web/partials/shelters/list.html'
-    });
-    $routeProvider.when('/shelters/:shelterId', {
+    }).
+    when('/shelters/create', {
+      templateUrl: 'web/partials/shelters/create.html'
+    }).
+    when('/shelters/:shelterId', {
       templateUrl: 'web/partials/shelters/view.html'
-    });
-    $routeProvider.otherwise({
+    }).
+    otherwise({
       redirectTo: '/shelters'
     });
   }]);

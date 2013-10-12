@@ -11,7 +11,7 @@ var ShelterSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  name: {
+  shelter_name: {
     type: String,
     default: '',
     trim: true
@@ -21,8 +21,8 @@ var ShelterSchema = new Schema({
 /**
  * Validations
  */
-ShelterSchema.path('name').validate(function(name) {
-  return name.length;
+ShelterSchema.path('shelter_name').validate(function(shelter_name) {
+  return shelter_name.length;
 }, 'Name cannot be blank');
 
 mongoose.model('Shelter', ShelterSchema);

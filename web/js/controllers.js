@@ -3,7 +3,7 @@
 /* Controllers */
 
 angular.module('sheltersApp.controllers', []).
-  controller('SheltersCtrl', ['$scope', '$routeParams', 'Shelters', function ($scope, $routeParams, Shelters) {
+  controller('SheltersCtrl', ['$scope', '$routeParams', '$location', 'Shelters', function ($scope, $routeParams, $location, Shelters) {
   
   $scope.find = function(query) {
     Shelters.query(query, function(shelters) {
@@ -17,6 +17,18 @@ angular.module('sheltersApp.controllers', []).
     }, function(shelter) {
       $scope.shelter = shelter;
     });
+  };
+  
+  $scope.create = function() {
+    var shelter = new Shelters({
+      shelter_name: this.shelter_name
+    });
+    
+    shelter.$save(function(res) {
+      $location.path('shelters/' + res._id);
+    });
+    
+    this.shelter_name = '';
   };
   
 }]);
