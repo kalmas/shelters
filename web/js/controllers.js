@@ -40,4 +40,15 @@ angular.module('sheltersApp.controllers', []).
     });
   };
   
+  $scope.remove = function(shelter) {
+    shelter.$remove(function() {
+        for (var i in $scope.shelters) {
+          if($scope.shelters[i] == shelter) {
+            $scope.shelters.splice(i, 1);
+          }
+        }          
+        $location.path('shelters');
+    });
+  };
+  
 }]);

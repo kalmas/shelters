@@ -31,7 +31,7 @@ exports.all = function(req, res) {
  * Return one shelter
  */
 exports.show = function(req, res) {
-  res.jsonp(req.shelter);
+  res.json(req.shelter);
 };
 
 /**
@@ -57,7 +57,22 @@ exports.update = function(req, res) {
   shelter = _.extend(shelter, req.body);
 
   shelter.save(function(err) {
-    res.jsonp(shelter);
+    res.json(shelter);
+  });
+};
+
+/**
+ * Delete an article
+ */
+exports.remove = function(req, res) {
+  var shelter = req.shelter;
+  
+  shelter.remove(function(err) {
+    if(err) {
+      res.render('error', {status: 500});
+    } else {
+      res.json(shelter);
+    }
   });
 };
 
