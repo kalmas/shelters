@@ -1,5 +1,6 @@
 var mongoose = require('mongoose')
-  , Shelter = mongoose.model('Shelter');
+  , Shelter = mongoose.model('Shelter')
+  , _ = require('underscore');
 
 /**
  * Find shelter by id
@@ -33,6 +34,9 @@ exports.show = function(req, res) {
   res.jsonp(req.shelter);
 };
 
+/**
+ * Create a shelter
+ */
 exports.create = function(req, res) {
 	var shelter = new Shelter(req.body);
 	shelter.save(function(err) {
@@ -43,3 +47,23 @@ exports.create = function(req, res) {
 		return res.json(shelter);
 	});
 };
+
+/**
+ * Update a shelter
+ */
+exports.update = function(req, res) {
+  var shelter = req.shelter;
+  
+  shelter = _.extend(shelter, req.body);
+
+  shelter.save(function(err) {
+    res.jsonp(shelter);
+  });
+};
+
+
+
+
+
+
+

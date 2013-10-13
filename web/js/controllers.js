@@ -12,11 +12,10 @@ angular.module('sheltersApp.controllers', []).
   };
   
   $scope.findOne = function() {
-    Shelters.get({
-      shelterId: $routeParams.shelterId
-    }, function(shelter) {
-      $scope.shelter = shelter;
-    });
+    Shelters.get({ shelterId: $routeParams.shelterId }
+        , function(shelter) {
+          $scope.shelter = shelter;
+        });
   };
   
   $scope.create = function() {
@@ -29,6 +28,16 @@ angular.module('sheltersApp.controllers', []).
     });
     
     this.shelter_name = '';
+  };
+  
+  $scope.update = function() {
+    var shelter = $scope.shelter;
+    if (!shelter.updated) shelter.updated = [];
+    shelter.updated.push(new Date().getTime());
+
+    shelter.$update(function() {
+        $location.path('shelters/' + shelter._id);
+    });
   };
   
 }]);

@@ -9,7 +9,8 @@ module.exports = function(server) {
 
 	server.get('/shelters', shelters.all);
 	server.get('/shelters/:shelterId', shelters.show);
-	server.post('/shelters', shelters.create)
+	server.post('/shelters', shelters.create);
+	server.put('/shelters/:shelterId', shelters.update);
 
   server.param('shelterId', shelters.shelter);
 };

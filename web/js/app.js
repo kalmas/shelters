@@ -17,6 +17,9 @@ angular.module('sheltersApp', [
     when('/shelters/create', {
       templateUrl: 'web/partials/shelters/create.html'
     }).
+    when('/shelters/:shelterId/edit', {
+      templateUrl: 'web/partials/shelters/edit.html'
+    }).
     when('/shelters/:shelterId', {
       templateUrl: 'web/partials/shelters/view.html'
     }).

@@ -2,5 +2,5 @@
     data-ng-controller="SheltersCtrl" data-ng-init="findOne()">
 	<h2>{{ shelter.shelter_name }}</h2>
 	<span>Created On: {{ shelter.created | date:'medium' }}</span>
-	<!-- <a data-ng-show="global.user._id == article.user._id" href="/#!/articles/{{article._id}}/edit">edit</a> -->
+	<a href="#/shelters/{{ shelter._id }}/edit">edit</a>
 </section>
