@@ -3,4 +3,9 @@
 	<h2>{{ shelter.shelter_name }}</h2>
 	<span>Created On: {{ shelter.created | date:'medium' }}</span>
 	<a href="#/shelters/{{ shelter._id }}/edit">edit</a>
+	
+	<h3>Address</h3>
+	  {{ shelter.address_street }}<br />
+	  {{ shelter.address_city }}, {{ shelter.address_state }}
+	  {{ shelter.address_zip }}<br />
 </section>

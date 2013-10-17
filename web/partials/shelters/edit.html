@@ -2,10 +2,27 @@
 	<form class="form-horizontal" data-ng-submit="update()">
 		<div class="control-group">
 			<label class="control-label" for="shelter_name">Name</label>
- 
 			<div class="controls">
 				<input type="text" data-ng-model="shelter.shelter_name" id="shelter_name" placeholder="Name" required>
 				</input>
+			</div>
+		</div>
+	 <div class="control-group">
+			<label class="control-label" for="address_street">Street</label>
+			<div class="controls">
+				<input type="text" data-ng-model="shelter.address_street" id="address_street" placeholder="Street" required>
+			</div>
+		  <label class="control-label" for="address_city">City</label>
+			<div class="controls">
+				<input type="text" data-ng-model="shelter.address_city" id="address_city" placeholder="City" required>
+			</div>
+			<label class="control-label" for="address_state">State</label>
+			<div class="controls">
+				<input type="text" data-ng-model="shelter.address_state" id="address_state" placeholder="State" required>
+			</div>
+			<label class="control-label" for="address_zip">Zip</label>
+			<div class="controls">
+				<input type="text" data-ng-model="shelter.address_zip" id="address_zip" placeholder="Zip" required>
 			</div>
 		</div>
 		<div class="control-group">

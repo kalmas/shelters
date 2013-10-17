@@ -2,7 +2,6 @@ var mongoose = require('mongoose')
   , config = require('../../config/config')
   , Schema = mongoose.Schema;
 
-
 /**
  * Shelter Schema
  */
@@ -15,7 +14,27 @@ var ShelterSchema = new Schema({
     type: String,
     default: '',
     trim: true
-  }
+  },
+  address_street: {
+    type: String,
+    default: '',
+    trim: true
+  },
+  address_city: {
+    type: String,
+    default: '',
+    trim: true
+  },
+  address_state: {
+    type: String,
+    default: '',
+    trim: true
+  },
+  address_zip: {
+    type: Number,
+    default: '',
+    trim: true
+  },
 });
 
 /**

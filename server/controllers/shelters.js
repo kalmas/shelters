@@ -18,7 +18,7 @@ exports.shelter = function(req, res, next, id) {
  * Get all shelters
  */
 exports.all = function(req, res) {
-	Shelter.find().sort('-created').exec(function(err, articles) {
+	Shelter.find().sort('shelter_name').exec(function(err, articles) {
 		if(err) {
       return res.send(500, err);
     }
