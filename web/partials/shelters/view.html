@@ -1,11 +1,11 @@
 <section 
     data-ng-controller="SheltersCtrl" data-ng-init="findOne()">
-	<h2>{{ shelter.shelter_name }}</h2>
+	<h2>{{ shelter.name }}</h2>
 	<span>Created On: {{ shelter.created | date:'medium' }}</span>
 	<a href="#/shelters/{{ shelter._id }}/edit">edit</a>
 	
 	<h3>Address</h3>
-	  {{ shelter.address_street }}<br />
-	  {{ shelter.address_city }}, {{ shelter.address_state }}
-	  {{ shelter.address_zip }}<br />
+	  {{ shelter.address.street }}<br />
+	  {{ shelter.address.city }}, {{ shelter.address.state }}
+	  {{ shelter.address.zip }}<br />
 </section>

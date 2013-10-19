@@ -12,22 +12,20 @@ angular.module('sheltersApp.controllers', []).
   };
   
   $scope.findOne = function() {
-    Shelters.get({ shelterId: $routeParams.shelterId }
+    Shelters.get({ _id: $routeParams.shelterId }
         , function(shelter) {
           $scope.shelter = shelter;
         });
   };
   
   $scope.create = function() {
-    var shelter = new Shelters({
-      shelter_name: this.shelter_name
-    });
+    var shelter = new Shelters(this.shelter);
     
     shelter.$save(function(res) {
       $location.path('shelters/' + res._id);
     });
     
-    this.shelter_name = '';
+    //this.shelter.name = '';
   };
   
   $scope.update = function() {

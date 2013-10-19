@@ -1,6 +1,7 @@
 var mongoose = require('mongoose')
   , config = require('../../config/config')
-  , Schema = mongoose.Schema;
+  , Schema = mongoose.Schema
+  , validate = require('mongoose-validator').validate;
 
 /**
  * Shelter Schema
@@ -10,38 +11,39 @@ var ShelterSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  shelter_name: {
+  name: {
     type: String,
     default: '',
     trim: true
   },
-  address_street: {
-    type: String,
-    default: '',
-    trim: true
-  },
-  address_city: {
-    type: String,
-    default: '',
-    trim: true
-  },
-  address_state: {
-    type: String,
-    default: '',
-    trim: true
-  },
-  address_zip: {
-    type: Number,
-    default: '',
-    trim: true
-  },
+  address : {
+    street: {
+      type: String,
+      default: '',
+      trim: true
+    },
+    city: {
+      type: String,
+      default: '',
+      trim: true
+    },
+    state: {
+      type: String,
+      default: '',
+      trim: true,
+      validate: validate('len', 2, 2)
+    },
+    zip: {
+      type: Number
+    }
+  }
 });
 
 /**
  * Validations
  */
-ShelterSchema.path('shelter_name').validate(function(shelter_name) {
-  return shelter_name.length;
+ShelterSchema.path('name').validate(function(name) {
+  return name.length;
 }, 'Name cannot be blank');
 
 mongoose.model('Shelter', ShelterSchema);

@@ -1,28 +1,28 @@
 <section data-ng-controller="SheltersCtrl" data-ng-init="findOne()">
 	<form class="form-horizontal" data-ng-submit="update()">
 		<div class="control-group">
-			<label class="control-label" for="shelter_name">Name</label>
+			<label class="control-label" for="name">Name</label>
 			<div class="controls">
-				<input type="text" data-ng-model="shelter.shelter_name" id="shelter_name" placeholder="Name" required>
+				<input type="text" data-ng-model="shelter.name" id="name" placeholder="Name" required>
 				</input>
 			</div>
 		</div>
 	 <div class="control-group">
-			<label class="control-label" for="address_street">Street</label>
+			<label class="control-label" for="street">Street</label>
 			<div class="controls">
-				<input type="text" data-ng-model="shelter.address_street" id="address_street" placeholder="Street" required>
+				<input type="text" data-ng-model="shelter.address.street" id="street" placeholder="Street" required>
 			</div>
-		  <label class="control-label" for="address_city">City</label>
+		  <label class="control-label" for="city">City</label>
 			<div class="controls">
-				<input type="text" data-ng-model="shelter.address_city" id="address_city" placeholder="City" required>
+				<input type="text" data-ng-model="shelter.address.city" id="city" placeholder="City" required>
 			</div>
-			<label class="control-label" for="address_state">State</label>
+			<label class="control-label" for="state">State</label>
 			<div class="controls">
-				<input type="text" data-ng-model="shelter.address_state" id="address_state" placeholder="State" required>
+				<input type="text" data-ng-model="shelter.address.state" id="state" placeholder="State" required>
 			</div>
-			<label class="control-label" for="address_zip">Zip</label>
+			<label class="control-label" for="zip">Zip</label>
 			<div class="controls">
-				<input type="text" data-ng-model="shelter.address_zip" id="address_zip" placeholder="Zip" required>
+				<input type="text" data-ng-model="shelter.address.zip" id="zip" placeholder="Zip" required>
 			</div>
 		</div>
 		<div class="control-group">

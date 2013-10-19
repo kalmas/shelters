@@ -8,7 +8,7 @@ var mongoose = require('mongoose')
 exports.shelter = function(req, res, next, id) {
   Shelter.findOne({ _id: id }, function(err, shelter) {
     if (err) return next(err);
-    if (!shelter) return next(new Error('Failed to load article ' + id));
+    if (!shelter) return next(new Error('Failed to load shelter ' + id));
     req.shelter = shelter;
     next();
   });
@@ -18,7 +18,7 @@ exports.shelter = function(req, res, next, id) {
  * Get all shelters
  */
 exports.all = function(req, res) {
-	Shelter.find().sort('shelter_name').exec(function(err, articles) {
+	Shelter.find().sort('name').exec(function(err, articles) {
 		if(err) {
       return res.send(500, err);
     }
@@ -57,7 +57,11 @@ exports.update = function(req, res) {
   shelter = _.extend(shelter, req.body);
 
   shelter.save(function(err) {
-    res.json(shelter);
+    if(err) {
+			return res.send(500, err);		
+		}
+		
+		return res.json(shelter);
   });
 };
 
