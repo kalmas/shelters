@@ -12,10 +12,11 @@ angular.module('sheltersApp.controllers', []).
   };
   
   $scope.findOne = function() {
-    Shelters.get({ _id: $routeParams.shelterId }
-        , function(shelter) {
-          $scope.shelter = shelter;
-        });
+    Shelters.get({ shelterId : $routeParams.shelterId }
+      , function(shelter) {
+        $scope.shelter = shelter;
+      }
+    );
   };
   
   $scope.create = function() {

@@ -7,7 +7,18 @@
 				</input>
 			</div>
 		</div>
-	 <div class="control-group">
+		<div class="control-group">
+			<label class="control-label" for="about">About</label>
+			<div class="controls">
+				<textarea data-ng-model="shelter.about" id="about" placeholder="About"></textarea>
+			</div>
+		</div>
+		<div>
+		  <li ng-repeat="animal in shelter.animals">
+		    <a href="#/animals/{{ animal._id }}/edit">{{ animal.name }}</a>
+		  </li>
+		</div>		
+	  <div class="control-group">
 			<label class="control-label" for="street">Street</label>
 			<div class="controls">
 				<input type="text" data-ng-model="shelter.address.street" id="street" placeholder="Street" required>
@@ -24,7 +35,7 @@
 			<div class="controls">
 				<input type="text" data-ng-model="shelter.address.zip" id="zip" placeholder="Zip" required>
 			</div>
-		</div>
+		</div>		
 		<div class="control-group">
 			<div class="controls">
 				<input type="submit" class="btn">

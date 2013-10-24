@@ -7,21 +7,7 @@ var express = require('express')
   , server = express();
 
 //Bootstrap models
-var walk = function(path) {
-  fs.readdirSync(path).forEach(function(file) {
-    var newPath = path + '/' + file;
-    var stat = fs.statSync(newPath);
-    if (stat.isFile()) {
-      if (/(.*)\.(js|coffee)/.test(file)) {
-        require(newPath);
-      }
-    } else if (stat.isDirectory()) {
-      walk(newPath);
-    }
-  });
-};
-walk(config.modelsPath);
-
+require(config.modelsPath + '/bootstrap');
 
 // Configure express
 require('./config/express')(server);
