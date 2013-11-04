@@ -6,12 +6,14 @@ var mongoose = require('mongoose')
  * Find shelter by id
  */
 exports.shelter = function(req, res, next, id) {
-  Shelter.findOne({ _id: id }, function(err, shelter) {
-    if (err) return next(err);
-    if (!shelter) return next(new Error('Failed to load shelter ' + id));
-    req.shelter = shelter;
-    next();
-  });
+  Shelter.findOne({ _id: id })
+    .populate('animals')
+    .exec(function(err, shelter) {
+      if (err) return next(err);
+      if (!shelter) return next(new Error('Failed to load shelter ' + id));
+      req.shelter = shelter;
+      next();
+    });
 };
 
 /**

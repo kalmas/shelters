@@ -1,6 +1,5 @@
 var mongoose = require('mongoose')
-  , Schema = mongoose.Schema
-  , AnimalSchema = require('./animal').Schema;
+  , Schema = mongoose.Schema;
   
 module.exports.Schema = new Schema({
   created: {
@@ -16,7 +15,10 @@ module.exports.Schema = new Schema({
     type: String,
     trim: true
   },
-  animals: [AnimalSchema],
+  animals: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Animal'
+  }],
   address : {
     street: {
       type: String,

@@ -2,9 +2,9 @@ var mongoose = require('mongoose')
   , Schema = mongoose.Schema;
 
 module.exports.Schema = new Schema({
-  created: {
-    type: Date,
-    default: Date.now
+  shelter: {
+    type: Schema.Types.ObjectId,
+    ref: 'Shelter'
   },
   identifier: {
     type: String,
@@ -46,7 +46,7 @@ module.exports.Schema = new Schema({
     sterilized: {
       type: Boolean
     },
-    vaccine:{
+    vaccinations:{
       type: Array
     }
   }
