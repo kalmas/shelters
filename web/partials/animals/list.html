@@ -1,0 +1,16 @@
+<div class="container-fluid" 
+    data-ng-controller="AnimalsCtrl" data-ng-init="find()">
+  <div class="row-fluid">
+    <div class="span10">
+      <h1>Animals</h1>
+      <ul>
+        <li ng-repeat="animal in animals">
+          <h2>
+            <a data-ng-href="#/animals/{{animal._id}}">{{ animal.identifier }}</a>
+          </h2>
+          {{ animal.shelter.name }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

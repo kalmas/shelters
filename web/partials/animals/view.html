@@ -1,0 +1,20 @@
+<section data-ng-controller="AnimalsCtrl" data-ng-init="findOne()">
+	<div class="container">
+  	<h2>{{ animal.identifier }} ({{ animal.species }})</h2>
+  	<div>
+  	  <span ng-repeat="breed in animal.breeds" class="label label-info" style="background-color: rgb(58, 135, 173); color: rgb(255, 255, 255); padding: 1px 3px 2px; font-size: 11px;">{{ breed }}</span>
+  	</div>
+  	<strong><a data-ng-href="#/shelters/{{ animal.shelter._id }}">{{ animal.shelter.name }}</strong></a><br />
+  	<strong>Age:</strong> {{animal.age}}<br />
+  	<strong>Sex:</strong> {{animal.sex}}
+  	<h4>Appearance</h4>
+  	{{ animal.appearance.discription }}<br />
+  	{{ animal.appearance.markings }}<br />
+  	{{ animal.appearance.colors }}
+  	<h4>About</h4>
+  	{{ animal.about}}<br />
+  	<h4>Medical</h4>
+  	<strong>Spayed/Neutered:</strong> {{ animal.medical.sterilized | checkmark }}<br />
+  	<strong>Vaccinations:</strong> {{ animal.medical.vaccinations }}<br />
+  </div>
+</section>

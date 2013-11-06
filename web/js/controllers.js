@@ -1,9 +1,11 @@
 'use strict';
 
-/* Controllers */
+var controllers = angular.module('sheltersApp.controllers', []);
 
-angular.module('sheltersApp.controllers', []).
-  controller('SheltersCtrl', ['$scope', '$routeParams', '$location', 'Shelters', function ($scope, $routeParams, $location, Shelters) {
+/**
+ * Shelters Controller
+ */
+controllers.controller('SheltersCtrl', ['$scope', '$routeParams', '$location', 'Shelters', function ($scope, $routeParams, $location, Shelters) {
   
   $scope.find = function(query) {
     Shelters.query(query, function(shelters) {
@@ -48,6 +50,30 @@ angular.module('sheltersApp.controllers', []).
         }          
         $location.path('shelters');
     });
+  };
+  
+}]);
+
+
+/**
+ * Animals Controller
+ */
+controllers.controller('AnimalsCtrl', ['$scope', '$routeParams', '$location', 'Animals', function ($scope, $routeParams, $location, Animals) {
+  
+  $scope.find = function(query) {
+    Animals.query(query, function(animals) {
+      $scope.animals = animals;
+    });
+  };
+  
+  $scope.findOne = function() {
+    Animals.get({ animalId : $routeParams.animalId }
+      , function(animal) {
+        var age = Math.round((new Date().getTime() - new Date(animal.date_of_birth).getTime()) / 31536000000); 
+        animal.age = age;
+        $scope.animal = animal;
+      }
+    );
   };
   
 }]);

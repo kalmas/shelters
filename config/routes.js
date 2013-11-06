@@ -16,6 +16,7 @@ module.exports = function(server) {
 	server.del('/shelters/:shelterId', shelters.remove);
   server.param('shelterId', shelters.shelter);
   
+	server.get('/animals', animals.all);
 	server.get('/animals/:animalId', animals.show);
 	server.post('/animals', animals.create);
   server.param('animalId', animals.animal);

@@ -17,6 +17,19 @@ exports.animal = function(req, res, next, id) {
 };
 
 /**
+ * Get all animals
+ */
+exports.all = function(req, res) {
+	Animal.find()
+	    .populate('shelter')
+	    .sort('identifier')
+	    .exec(function(err, animals) {
+		if(err) return res.send(500, err);
+    res.json(animals);
+	});
+};
+
+/**
  * Return one animal
  */
 exports.show = function(req, res) {
@@ -24,14 +37,14 @@ exports.show = function(req, res) {
 };
 
 /**
- * Create a animal
+ * Create an animal
  */
 exports.create = function(req, res) {
 	var animal = new Animal(req.body);
 	animal.save(function(err, animal) {
 		if(err) return res.send(500, err);
 		Shelter.findByIdAndUpdate(animal.shelter
-		    , {$push: {animals: animal._id}}
+		    , {$addToSet: {animals: animal._id}}
 		    , function(err, shelter) {
 		      if(err) return res.send(500, err);
 		      console.log(animal);
@@ -39,5 +52,5 @@ exports.create = function(req, res) {
 		      return res.json(animal);
 		    });
   });
- };
+};
 
