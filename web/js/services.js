@@ -4,7 +4,7 @@ var services = angular.module('sheltersApp.services', []);
 
 services.factory("Shelters", ['$resource', function($resource) {
 
-    return $resource('shelters/:shelterId', {
+    return $resource('/shelters/:shelterId', {
         shelterId: '@_id'
       }, 
       {
@@ -18,7 +18,7 @@ services.factory("Shelters", ['$resource', function($resource) {
 
 services.factory("Animals", ['$resource', function($resource) {
 
-    return $resource('animals/:animalId', {
+    return $resource('/animals/:animalId', {
         animalId: '@_id'
       }, 
       {
